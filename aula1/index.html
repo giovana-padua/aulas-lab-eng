@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1</title>
+</head>
+<body>
+    <p id="texto"></p>
+    
+    <p id="texto2"></p>
+    
+    <script src="ex2.js">
+        // o resultado final é Engenharia
+    </script>
+
+    <script>
+        /*
+        document.write("Lab. Engenharia de Software")
+        
+            scripts no fundo do body 
+            -> ela é executada sequencialmente
+            -> adicionar os comandos na ordem que 
+            quer que os comandos sejam executados,
+            se não um comando pode sobrescrever o outro
+
+            Como no exemplo a seguir com o id texto
+
+            write: escreve no final de cada linha
+        */
+
+        document.getElementById("texto").textContent = "Engenharia"
+        //document.getElementById("texto2").textContent = "Engenharia"
+    </script>
+
+    <script src="script.js">
+        // o resultado final é Engenharia de Software
+    </script>
+    
+
+</body>
+</html>
