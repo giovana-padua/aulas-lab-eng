@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+
+    <link rel="stylesheet" href="src/css/style.css">    
+</head>
+<body>
+    <section class="content">
+        <h1 class="title">Formulário de Cadastro:</h1>
+        <form class="sign_up" id="form">
+            <div>
+                <label class="title_form" for="iname">Nome:</label>
+                <input onblur="verificarConteudo(this)" id="iname" class="input_form" type="text" name="iname" placeholder="Digite seu nome completo">
+            </div>
+    
+            <div class="two_inputs">
+                <div>
+                    <label class="title_form" for="iemail">Email:</label>
+                    <input onblur="verificarConteudo(this)" id="iemail" class="input_form" type="email" name="iemail" placeholder="fulano.com">
+                </div>
+                
+                <div>
+                    <label class="title_form" for="idate">Data nascimento:</label>
+                    <input onblur="verificarConteudo(this)" id="idate" class="input_form" type="date" name="idate" placeholder="Informe sua data de nascimento no formato aaaa-mm-dd">
+                </div>
+            </div>
+    
+            <div class="three_inputs">
+                <div>
+                    <label class="title_form" for="itelephone">Telefone Fixo:</label>
+                    <input oninput="formatarTelefone(this)" maxlength="15" onblur="verificarConteudo(this)" id="itelephone" class="input_form" type="text" name="itelephone" placeholder="(99) 99999-9999">
+                </div>
+                
+                <div>
+                    <label class="title_form" for="ismartphone">Telefone Celular:</label>
+                    <input oninput="formatarTelefone(this)" maxlength="15" onblur="verificarConteudo(this)" id="ismartphone" class="input_form" type="text" name="ismartphone" placeholder="(99) 99999-9999">
+                </div>
+    
+                <div class="radio_buttons">
+                    <label class="input_form" for="irole">
+                        <input id="irole_professor" class="title_form" type="radio" name="irole" value="Professor" checked onclick="selectRole(this)">
+                        Professor
+                    </label>
+    
+                    <label class="input_form" for="irole">
+                        <input id="irole_student" class="title_form" type="radio" name="irole" value="Aluno" onclick="selectRole(this)">
+                        Aluno
+                    </label>
+                </div>
+            </div>
+    
+            <!--
+            <div id="professor">
+                <div class="two_inputs">
+                    <div>
+                        <label class="title_form" for="ifield">Área:</label>
+                        <input id="ifield" class="input_form" type="text" name="ifield" placeholder="Digite sua área de atuação">
+                    </div>
+                    
+                    <div>
+                        <label class="title_form" for="ienrollment">Matrícula:</label>
+                        <input id="ienrollment" class="input_form" type="text" name="ienrollment" placeholder="Digite sua matrícula">
+                    </div>
+                </div>
+        
+                <div>
+                    <label class="title_form" for="icvlattes">Lattes:</label>
+                    <input id="ilattes" class="input_form" type="text" name="icvlattes" placeholder="Digite aqui o endereço para seu Lattes">
+                </div>
+            </div>
+    
+            <div id="student" class="two_inputs hidden">
+                <div>
+                    <label class="title_form" for="icurrent">Área:</label>
+                    <input id="icurrent" class="input_form" type="text" name="icurrent" placeholder="Digite seu curso">
+                </div>
+                
+                <div>
+                    <label class="title_form" for="ienrollment">Matrícula:</label>
+                    <input id="ienrollment" class="input_form" type="text" name="ienrollment" placeholder="Digite sua matrícula">
+                </div>
+            </div>
+            -->
+
+            <div>
+                <div class="two_inputs">
+
+                    <!-- Professor-->
+                    <div class="professor">
+                        <label class="title_form" for="ifield">Área:</label>
+                        <input id="ifield" class="input_form" type="text" name="ifield" placeholder="Digite sua área de atuação">
+                    </div>
+                    <!-- ~~~~ -->
+
+                    <!-- Aluno-->
+                    <div class="student hidden">
+                        <label class="title_form" for="icurrent">Curso:</label>
+                        <input id="icurrent" class="input_form" type="text" name="icurrent" placeholder="Digite seu curso">
+                    </div>
+                    <!-- ~~~~ -->
+
+                    <div>
+                        <label class="title_form" for="ienrollment">Matrícula:</label>
+                        <input id="ienrollment" class="input_form" type="text" name="ienrollment" placeholder="Digite sua matrícula">
+                    </div>
+                </div>
+                
+                <!-- Professor-->
+                <div class="professor">
+                    <label class="title_form" for="icvlattes">Lattes:</label>
+                    <input id="ilattes" class="input_form" type="text" name="icvlattes" placeholder="Digite aqui o endereço para seu Lattes">
+                </div>
+                <!-- ~~~~ -->
+            </div>
+    
+            <div class="buttons_form">
+                <button class="button_form" type="submit" onsubmit="cadastrarUsuario(this)">Enviar</button>
+                <button class="button_form" type="reset">Redefinir</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>

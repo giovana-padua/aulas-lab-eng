@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px;
+}
+
+.title {
+    color: #000;
+    font-size: 26px;
+}
+
+.title,
+.sign_up {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+    width: 600px;
+}
+
+.two_inputs,
+.three_inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.two_inputs div,
+.three_inputs div {
+    width: 100%;
+}
+
+.title_form {
+    color: #222;
+    font-size: 10px;
+    opacity: .9;
+}
+
+.input_form {
+    width: 100%;
+
+    border: none;
+    border-bottom: 1px solid #ccc;
+    color: #999;
+    font-size: 12px;
+
+    outline: none;
+}
+
+.radio_buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio_buttons .input_form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+
+    border: none;
+}
+
+.buttons_form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    padding: 20px;
+}
+
+.button_form {
+    width: 80px;
+    height: 25px;
+    border: 1px solid #aaa;
+    border-radius: 4px;     
+    font-size: 12px;
+    background-color: #eee;
+
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cod = prompt("Insira o código ou sigla de um município");
+
+        async function buscarMunicipio(code) {
+            try {
+                const resposta = await fetch(`https://brasilapi.com.br/api/ibge/uf/v1/${code}`)
+                const resultado = await resposta.json()
+                return resultado
+            }
+            catch (er) {
+                return er
+            }
+        }
+        //buscarMunicipio(cod).then(result => console.log(result))
+        
+        buscarMunicipio(cod)
+            .then(result => {
+                if (result.type == "not_found")
+                    document.write(`
+                        <h3>Erro</h3>
+                        <p>${result.message}</p>
+                `)
+
+                else {
+                    document.write(`
+                        <h3>Código - Nome, Sigla</h3>
+                        <p>${result.id} - ${result.nome}, ${result.sigla}</p>
+                        <h3>Região</h3>
+                        <p>${result.regiao.nome} (${result.regiao.sigla})</p>
+                    `)
+                }
+            })
+        
+    </script>
+
+</body>
+</html>
