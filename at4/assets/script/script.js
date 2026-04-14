@@ -27,8 +27,6 @@ const vet_pessoas = [
     new Pessoa('Mulheres', './assets/img/freepik_woman.png', 0)
 ]
 
-console.log(vet_pessoas)
-
 // Adicionando os elementos HTML
 document.querySelector("#container").innerHTML = 
     `<h1>
@@ -52,7 +50,7 @@ for (let i = 0; i < vet_pessoas.length; i++)
     
             <div>
                 <button class="somar" onclick="${somar(this)}">+</button>
-                <button class="subtrair" onclick="${subtrair()}">-</button>
+                <button class="subtrair" onclick="${subtrair(this)}">-</button>
             </div>
     
             <p>${vet_pessoas[i].genero}</p>
@@ -67,6 +65,10 @@ document.querySelector('#total').innerHTML = total
 
 
 function somar(button) {
+    console.log(button)
+}
+
+function subtrair(button) {
     console.log(button)
 }
 
