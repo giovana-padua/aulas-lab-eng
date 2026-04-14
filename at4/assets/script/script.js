@@ -51,8 +51,8 @@ for (let i = 0; i < vet_pessoas.length; i++)
             <img src="${vet_pessoas[i].icone}">
     
             <div>
-                <button class="somar" onclick="${vet_pessoas[i].somar()}">+</button>
-                <button class="subtrair" onclick="${vet_pessoas[i].subtrair()}">-</button>
+                <button class="somar" onclick="${somar(this)}">+</button>
+                <button class="subtrair" onclick="${subtrair()}">-</button>
             </div>
     
             <p>${vet_pessoas[i].genero}</p>
@@ -65,6 +65,10 @@ for (let i = 0; i < vet_pessoas.length; i++)
 
 document.querySelector('#total').innerHTML = total
 
+
+function somar(button) {
+    console.log(button)
+}
 
 function zerar() {
     for (let i = 0; i < vet_pessoas.length; i++) {
