@@ -71,6 +71,7 @@ async function pegarCep(cep) {
 //console.log(pegarCep("httsasfc")) // retorna uma promisse
 //   .then(result => console.log(result))
 
+/*
 const executar = async (cep) => {
     try {
         return await pegarCep(cep)
@@ -78,6 +79,25 @@ const executar = async (cep) => {
     catch (error) {
         return error // captar o erro e retorná-lo
     }
+    finally {
+        console.log("Finalizado com sucesso!")
+    }
+}
+executar("19025000").then(result => console.log(result))
+*/
+
+async function executarComSeguranca() {
+    let cep = "19025000"
+    try {
+        var dados = await pegarCep(cep) // try/catch não vai funcionar sem um await
+        return dados
+    }
+    catch(error) {
+        console.error("Houve um erro: ", error)
+    }
+    finally {
+        console.log("Finalizado com sucesso")
+    }
 }
 
-executar("19025000").then(result => console.log(result))
+executarComSeguranca().then(result => console.log(result))
