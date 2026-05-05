@@ -71,7 +71,7 @@ class Pessoa {
     }
 
     apresentar() {
-        return `Olá, meu nome é ${this.nome}, `
+        return `Olá, meu nome é ${this.nome}`
     }
 }
 
@@ -83,7 +83,7 @@ class Aluno extends Pessoa {
     }
 
     estudar() {
-        document.write(`${this.nome} está cursando ${this.curso}`)
+        return `${this.nome} está cursando ${this.curso}`
     }
 }
 
@@ -92,8 +92,8 @@ const pessoa = new Pessoa('Gio')
 //document.write(pessoa.apresentar())
 
 const aluno = new Aluno('Giovana', 'ADS')
-document.write(aluno.apresentar())
-aluno.estudar()
+const al = document.querySelector('#aluno')
+al.textContent = `${aluno.apresentar()}, ${aluno.estudar()}`
 
 
 // Polimorfismo
@@ -141,11 +141,13 @@ class Pedido {
     }
 
     exibirPedido() {
-        document.write(`Cliente: ${this.cliente.nome} | Valor: R$ ${this.valor}`)
+        return `Cliente: ${this.cliente.nome} | Valor: R$ ${this.valor}`
     }
 }
 
 const cli = new Cliente('Julia')
 const ped = new Pedido(cli, 150)
 
-ped.exibirPedido()
+const cl = document.querySelector('#cliente')
+
+cl.textContent = `${ped.exibirPedido()}`

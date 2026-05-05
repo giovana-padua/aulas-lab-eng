@@ -34,21 +34,21 @@ contador.incrementar()
 // Programação assíncrona
 
 function callback(erro, resultado) {
-    if(erro != null) {
-        console.log(`Houve um erro: ${erro}`)
-        return
-    }
-    console.log(resultado)
+  if (erro != null) {
+    console.log(`Houve um erro: ${erro}`);
+    return;
+  }
+  console.log(resultado);
 }
 
 function buscarUsuario(callback) {
-    setTimeout(() => {
-        callback(null, {
-            nome: "André",
-            idade: 31
-        }),
-        3000
-    })
+  setTimeout(() => {
+    (callback(null, {
+      nome: "André",
+      idade: 31,
+    }),
+      3000);
+  });
 }
 
 //buscarUsuario(callback);
@@ -62,10 +62,10 @@ fetch("https://viacep.com.br/ws/19025000/json") // requisição da url
 */
 
 async function pegarCep(cep) {
-    const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json`)
-    const resultado = await resposta.json()
-    //console.log(resultado)
-    return resultado
+  const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json`);
+  const resultado = await resposta.json();
+  //console.log(resultado).then(element => )
+  return resultado;
 }
 
 //console.log(pegarCep("httsasfc")) // retorna uma promisse
@@ -87,17 +87,26 @@ executar("19025000").then(result => console.log(result))
 */
 
 async function executarComSeguranca() {
-    let cep = "19025000"
-    try {
-        var dados = await pegarCep(cep) // try/catch não vai funcionar sem um await
-        return dados
-    }
-    catch(error) {
-        console.error("Houve um erro: ", error)
-    }
-    finally {
-        console.log("Finalizado com sucesso")
-    }
+  let cep = "19025000";
+  try {
+    var dados = await pegarCep(cep); // try/catch não vai funcionar sem um await
+    return dados;
+  } catch (error) {
+    console.log("Houve um erro: ${error}");
+  } finally {
+    console.log("Finalizado com sucesso");
+  }
 }
 
-executarComSeguranca().then(result => console.log(result))
+const divCEP = document.querySelector("#cep");
+executarComSeguranca().then(
+  (result) =>
+    (divCEP.innerHTML = `
+    <h4>${result.cep}: ${result.bairro}, ${result.localidade} - ${result.estado} (${result.uf})</h4>
+    <p>${result.logradouro}</p>
+    <p>${result.complemento}</p>
+    <p>${result.ddd}</p>
+`),
+);
+
+//divCEP.textContent = executarComSeguranca().then(result => console.log(result))
