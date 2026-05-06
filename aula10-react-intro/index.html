@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>React | Introdução ao JSX</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        /*
+        para o navegador interpretar o script é necessário o babel
+        const elemento = <h1>Aula sobre React</h1>
+        ReactDOM.render(elemento, document.getElementById('root'))
+        */
+
+        function MeuElemento1() {
+            const nome = 'Giovana'
+            // os elementos precisam estar encapsulados usando tags ou fragment
+            return <div> 
+                <h1>Olá, {nome}!</h1> 
+                <img src="https://png.pngtree.com/png-vector/20250111/ourmid/pngtree-golden-retriever-dog-pictures-png-image_15147078.png"></img> 
+                </div>
+        }
+        
+        // fragment
+        function MeuElemento3() {
+            const nome = 'Giovana'
+            // os elementos precisam estar encapsulados usando tags ou 
+            return <> 
+                <h1>Olá, {nome}!</h1> 
+                <img src="https://png.pngtree.com/png-vector/20250111/ourmid/pngtree-golden-retriever-dog-pictures-png-image_15147078.png"></img> 
+                </>
+        }
+
+        const faculdade = {
+            nome: 'Fatec',
+            cidade: 'Presidente Prudente'
+        }
+
+        function formatarNome(faculdade) {
+            return `${faculdade.nome} - ${faculdade.cidade}` 
+        }
+
+        function MeuElemento2() {
+            return <h1>Olá, {formatarNome(faculdade)}</h1>
+        }
+
+        function NovoElementoAgora({agora}) {
+            return (
+                <div>
+                    <h1>Olá, mundo!</h1>
+                    <h2>Agora são {agora}</h2>
+                </div>
+            )
+        }
+
+        const container = document.getElementById('root')
+        const root = ReactDOM.createRoot(container)
+        // Reenderização
+        /*container.render(<MeuElemento/>)
+        container.render(
+            <div>    
+                <MeuElemento1/>
+                <MeuElemento2/>
+                <MeuElemento3/>
+            </div>    
+        )
+
+        function NovoElemento() {
+            return <>
+                <p>Olá, agora são:</p>
+                <p>{new Date().toLocaleTimeString()}</p>
+            </>
+        }
+        */
+        
+        function render() {
+            //root.render(<NovoElemento/>)
+            let now = new Date().toLocaleTimeString()
+            root.render(<NovoElementoAgora agora={now} />)
+        }
+
+        setInterval(render, 1000)
+    </script>
+</body>
+</html>
