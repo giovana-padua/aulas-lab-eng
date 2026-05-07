@@ -1,3 +1,5 @@
+import { saudacao, pegarCep, pegarHoraAtual } from "./utils.js"
+
 const app = document.getElementById('app')
 const btn = document.createElement('button')
 btn.textContent = 'Clique'
@@ -24,11 +26,22 @@ const bairro = document.getElementById('bairro')
 cep.addEventListener('blur', async (e) => { 
     const value = cep.value // valida se ha dados em cep
     if(value) {
-        const resposta = await fetch(`https://viacep.com.br/ws/${value}/json/`) // acessa a api quando o usuario da tab no campo cep
-        const dados = await resposta.json()
+        var dados = await pegarCep(value)
         if(dados !== undefined) { // autopreenche os campos logradouro e bairro se os dados da api forem validos
             logradouro.value = dados.logradouro
             bairro.value = dados.bairro
         }
     }
 })
+
+// Agendamentos
+const hora = document.getElementById('hora')
+hora.textContent = pegarHoraAtual()
+
+const intervalo = setInterval(() => {
+    hora.textContent = pegarHoraAtual()
+}, 1000)
+
+setTimeout(function() {
+    clearInterval(intervalo)
+}, 3000)

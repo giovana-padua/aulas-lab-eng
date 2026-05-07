@@ -11,25 +11,31 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
+
+        // Definindo onde será mostrado o componente
         const container = document.getElementById('root')
         const root = ReactDOM.createRoot(container)
 
-        function Letreiro({texto}) {
-            let qtd = texto.length
-            for(let i = 0; i < qtd; i++) {
-                return texto[i]
-            }
+        // Variáveis com o texto o contador para a substring
+        const text = 'Venha estudar na Fatec'
+        let i = 0
+
+        // Componente Letreiro
+        function Letreiro({texto, indice}) {
+            return (
+                <div>
+                    <h2>{texto.substring(0, indice)}</h2>
+                </div>
+            )
         }
 
-        function mostrarLetreiro() {
-            let text = 'Venha Estudar na Fatec'
-            root.render(<Letreiro texto={text} />)
+        // Renderização de meio em meio segundo
+        function render() {
+            root.render(<Letreiro texto={text} indice={i} />)
+            i++
         }
 
-        setInterval(mostrarLetreiro, 1000)
-        
-
-        
+        setInterval(render, 500)
     </script>
 </body>
 </html>
